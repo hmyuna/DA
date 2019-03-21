@@ -49,5 +49,6 @@ int main()
     {
         cout << a[i] << endl;
     }
+    cout << "By HMY" << endl;
     return 0;
 }
