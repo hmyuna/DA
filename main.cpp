@@ -1,24 +1,35 @@
 #include <bits/stdc++.h>
 using namespace std;
 int n;
-int a[10001], sum = 0;
+double a[10001], sum = 0;
 void getBa()
 {
     cout << "Average: " << sum / n << " or " << sum << "/" << n << endl;
 }
 void getZhongShu()
 {
-    /*function*/
+    cout << "Most of the array";
+    map <double, int> hh;
+    int maxn = 0;
+    for(int i = 1; i <= n; i++)
+    {
+        hh[a[i]]++;
+        if(hh[a[i]] > maxn) maxn = hh[a[i]];
+    }
+    for(int i = 1; i <= n; i++)
+    {
+        if(hh[a[i]] == maxn) cout << a[i] << " ";
+    }
 }
 void getZhongWeiShu()
 {
     cout << "Middle of the array: ";
     if(n % 2 == 1)
     {
-        cout << a[n / 2 + 1] << endl;
+        cout << a[n / 2 + 1];
     }else
     {
-        cout << (a[n / 2] + a[n / 2 + 1]) / 2 << endl;
+        cout << (a[n / 2] + a[n / 2 + 1]) / 2;
     }
 }
 void getFangCha(){
@@ -27,7 +38,15 @@ void getFangCha(){
     {
         s += pow(a[i] - (sum / n), 2);
     }
-    cout << "S: " << s / n << endl;
+    cout << "S: " << s / n;
+}
+void printArray()
+{
+    cout << "Sorted Array: ";
+    for(int i = 1; i <= n; i++)
+    {
+        cout << a[i] << " ";
+    }
 }
 int main()
 {
@@ -44,11 +63,7 @@ int main()
     getZhongShu();
     getZhongWeiShu();
     getFangCha();
-    cout << "Sorted Array: ";
-    for(int i = 1; i <= n; i++)
-    {
-        cout << a[i] << endl;
-    }
+    printArray();
     cout << "By HMY" << endl;
     return 0;
 }
